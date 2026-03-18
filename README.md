@@ -1,19 +1,54 @@
-# Modelo de projeto de ciência de dados
+# 🤖 Classificação de Espécies Iris - Machine Learning
 
-Modelo de projeto de ciência de dados para ser utilizado como referência em projetos
-futuros. Desenvolvido por mim, [Francisco Bustamante](https://github.com/chicolucio),
-para alunos iniciantes em ciência de dados de meus cursos e mentorias.
+Este repositório contém um projeto completo de ciência de dados aplicado ao clássico [Iris Species Dataset](https://www.kaggle.com/datasets/uciml/iris/data). O objetivo é explorar as características morfológicas das flores e desenvolver modelos de aprendizagem automática capazes de classificar as espécies com precisão.
 
-Inspiração: [Cookiecutter Data Science](https://drivendata.github.io/cookiecutter-data-science/)
+## 📊 Visão Geral do Projeto
 
-Clique no botão **Use this template** para criar um novo repositório com base neste modelo.
+O projeto está estruturado em etapas que cobrem desde a análise estatística inicial até a implementação de pipelines de machine learning robustos. Foram analisadas três espécies: *Iris-setosa*, *Iris-versicolor* e *Iris-virginica*.
+
+### Estrutura dos Notebooks
+* **`01_gd_eda.ipynb`**: Análise Exploratória de Dados (EDA). Focado em limpeza, estatística descritiva e visualizações para entender o comportamento das variáveis.
+* **`02_gd_modelos.ipynb`**: Experimentação inicial de modelos de classificação e avaliação de fronteiras de decisão.
+* **`02_gd_modelos_parte_02.ipynb`**: Refinamento da abordagem utilizando técnicas avançadas como padronização, validação cruzada estratificada e pipelines.
+
+## 📈 Análise Exploratória (EDA)
+Principais descobertas:
+* **Balanceamento:** O conjunto de dados possui 50 amostras para cada classe, eliminando a necessidade de técnicas de reamostragem.
+* **Separação Linear:** A espécie *Iris-setosa* apresenta características únicas (especialmente no tamanho das pétalas) que permitem a sua separação clara das demais.
+* **Correlações:** Identificou-se uma forte correlação entre o comprimento e a largura da pétala, sendo estes os atributos mais importantes para a classificação.
+
+## ⚙️ Modelagem e Resultados
+
+Para garantir a fiabilidade dos resultados, a modelagem seguiu as melhores práticas da área:
+
+### Metodologia
+1. **Pré-processamento:** Escalonamento de atributos com `StandardScaler` e codificação de labels com `LabelEncoder`.
+2. **Validação:** Implementação de `StratifiedKFold` para garantir que todas as classes estivessem representadas em cada fold da validação.
+3. **Robustez:** Uso de `Pipeline` do Scikit-Learn para evitar o vazamento de dados durante o treino.
+
+### Desempenho dos Modelos
+Foram comparados modelos de base (*baseline*) com modelos lineares otimizados:
+
+| Modelo | Acurácia Média (CV) | F1-Score (Weighted) |
+| :--- | :---: | :---: |
+| **Logistic Regression** | **95.3%** | **0.95** |
+| Dummy Classifier | 34.0% | 0.33 |
+
+O modelo de **Regressão Logística** demonstrou um excelente poder preditivo, sendo uma solução eficaz e interpretável para este problema.
+
+## 🛠️ Tecnologias Utilizadas
+* **Python**
+* **Bibliotecas de Dados:** Pandas, NumPy.
+* **Visualização:** Matplotlib, Seaborn.
+* **Machine Learning:** Scikit-Learn.
+
+---
 
 ## Organização do projeto
 
 ```
-├── .env               <- Arquivo de variáveis de ambiente (não versionar)
 ├── .gitignore         <- Arquivos e diretórios a serem ignorados pelo Git
-├── ambiente.yml       <- O arquivo de requisitos para reproduzir o ambiente de análise
+├── IrisSpecies.yml       <- O arquivo de requisitos para reproduzir o ambiente de análise
 ├── LICENSE            <- Licença de código aberto se uma for escolhida
 ├── README.md          <- README principal para desenvolvedores que usam este projeto.
 |
@@ -36,51 +71,3 @@ Clique no botão **Use this template** para criar um novo repositório com base 
 ├── relatorios         <- Análises geradas em HTML, PDF, LaTeX, etc.
 │   └── imagens        <- Gráficos e figuras gerados para serem usados em relatórios
 ```
-
-## Configuração do ambiente
-
-1. Faça o clone do repositório que será criado a partir deste modelo.
-
-    ```bash
-    git clone ENDERECO_DO_REPOSITORIO
-    ```
-
-2. Crie um ambiente virtual para o seu projeto utilizando o gerenciador de ambientes de sua preferência.
-
-    a. Caso esteja utilizando o `conda`, exporte as dependências do ambiente para o arquivo `ambiente.yml`:
-
-      ```bash
-      conda env export > ambiente.yml
-      ```
-
-    b. Caso esteja utilizando outro gerenciador de ambientes, exporte as dependências
-    para o arquivo `requirements.txt` ou outro formato de sua preferência. Adicione o
-    arquivo ao controle de versão, removendo o arquivo `ambiente.yml`.
-
-3. Verifique o arquivo `notebooks/01-fb-exemplo.ipynb` para exemplos
-de uso do código.
-4. Renomeie o arquivo `notebooks/01-fb-exemplo.ipynb` para um nome
-mais apropriado ao seu projeto. E siga a convenção de nomenclatura para os demais
-notebooks.
-5. Remova arquivos de exemplo e adicione os arquivos de dados e notebooks do seu
-projeto.
-6. Verifique o arquivo `notebooks/src/config.py` para configurações básicas do projeto.
-Modifique conforme necessário, adicionando ou removendo caminhos de arquivos e
-diretórios.
-7. Atualize o arquivo `referencias/01_dicionario_de_dados.md` com o dicionário de dados
-do seu projeto.
-8. Atualize o `README.md` com informações sobre o seu projeto.
-9. Adicione uma licença ao projeto. Clique
-[aqui](https://docs.github.com/pt/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)
-se precisar de ajuda para escolher uma licença.
-10. Renomeie o arquivo `.env.exemplo` para `.env`
-11. Adicione variáveis de ambiente sensíveis ao arquivo `.env`.
-
-Por padrão, o arquivo `.gitignore` já está configurado para ignorar arquivos de dados e
-arquivos de Notebook (para aqueles que usam ferramentas como
-[Jupytext](https://jupytext.readthedocs.io/en/latest/) e similares). Adicione ou remova
-outros arquivos e diretórios do `.gitignore` conforme necessário. Caso deseje adicionar
-forçadamente um Notebook ao controle de versão, faça um commit forçado com o
-comando `git add --force NOME_DO_ARQUIVO.ipynb`.
-
-Para mais informações sobre como usar Git e GitHub, [clique aqui](https://cienciaprogramada.com.br/2021/09/guia-definitivo-git-github/). Sobre ambientes virtuais, [clique aqui](https://cienciaprogramada.com.br/2020/08/ambiente-virtual-projeto-python/).
