@@ -36,16 +36,16 @@ A metodologia seguiu rigorosas práticas de validação para evitar vazamento de
 
 Após o treinamento e a comparação empírica de todos os algoritmos, o modelo de **Árvore de Decisão (Decision Tree)** apresentou o melhor desempenho geral, alcançando **96% de acurácia**.
 
+<div align="center">
+<img src="relatorios/imagens/decision_tree.png" alt="Modelo Vencedor: Árvore de Decisões" width="1000">
+</div>
+
 Além do excelente desempenho métrico, a Árvore de Decisão ofereceu uma interpretabilidade essencial para o negócio. A análise de importância das variáveis (*Feature Importance*) revelou que:
 * A variável **`PetalWidthCm` (Largura da Pétala)** foi a característica com a maior importância preditiva no modelo vencedor, atuando como o principal nó de decisão para a separação correta das espécies.
 
 <div align="center">
-<img src="relatorios/imagens/decision_tree.png" alt="Modelo Vencedor: Árvore de Decisões" width="1000">
-
-
 <img src="relatorios/imagens/features.png" alt="Importância das Features" width="500">
 </div>
-
 
 
 ## 🛠️ Tecnologias Utilizadas
