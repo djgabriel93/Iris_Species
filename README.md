@@ -2,6 +2,9 @@
 
 Este repositório contém um projeto completo de Ciência de Dados aplicado ao clássico [Iris Species Dataset](https://www.kaggle.com/datasets/uciml/iris/data). O objetivo principal foi explorar as características morfológicas das flores e desenvolver, avaliar e comparar múltiplos modelos de aprendizado de máquina para classificar as espécies com precisão.
 
+![Flores de Íris](relatorios/imagens/Flores_de_iris.png)
+Fonte: Por Diego Mariano - Obra do próprio, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=114511020
+
 ## 📊 Visão Geral do Projeto
 
 O projeto está estruturado em etapas claras que cobrem desde a análise estatística inicial até a implementação e avaliação rigorosa de diversos algoritmos de classificação (*Decision Trees*, *Ensembles* e *Modelos Lineares*). Foram analisadas três espécies: *Iris-setosa*, *Iris-versicolor* e *Iris-virginica*.
@@ -10,7 +13,7 @@ O projeto está estruturado em etapas claras que cobrem desde a análise estatí
 Para facilitar a leitura e o acompanhamento do raciocínio analítico, o projeto foi dividido nos seguintes notebooks:
 * **`01_gd_eda.ipynb`**: Análise Exploratória de Dados (EDA). Limpeza, estatística descritiva e visualizações para entender a distribuição e as correlações das variáveis.
 * **`02_gd_modelos_parte_01_*.ipynb`**: Implementação e otimização individual dos modelos testados (Logistic Regression, Decision Tree, Random Forest, XGBoost e LightGBM).
-* **`02_gd_comparacao_LR.ipynb` / `02_gd_comparacao_Trees.ipynb`**: Avaliação de performance cruzada e comparação de métricas, permitindo selecionar o melhor modelo para o problema.
+* **`02_gd_comparacao_.ipynb`**: Avaliação de performance cruzada e comparação de métricas, permitindo selecionar o melhor modelo para o problema.
 
 ## 📈 Análise Exploratória (EDA)
 Principais descobertas durante a fase de exploração:
@@ -35,6 +38,15 @@ Após o treinamento e a comparação empírica de todos os algoritmos, o modelo 
 
 Além do excelente desempenho métrico, a Árvore de Decisão ofereceu uma interpretabilidade essencial para o negócio. A análise de importância das variáveis (*Feature Importance*) revelou que:
 * A variável **`PetalWidthCm` (Largura da Pétala)** foi a característica com a maior importância preditiva no modelo vencedor, atuando como o principal nó de decisão para a separação correta das espécies.
+
+<div align="center">
+<img src="relatorios/imagens/decision_tree.png" alt="Modelo Vencedor: Árvore de Decisões" width="1000">
+
+
+<img src="relatorios/imagens/features.png" alt="Importância das Features" width="500">
+</div>
+
+
 
 ## 🛠️ Tecnologias Utilizadas
 * **Linguagem:** Python
